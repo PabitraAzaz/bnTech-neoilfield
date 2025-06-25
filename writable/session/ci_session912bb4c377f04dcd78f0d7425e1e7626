@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1750854542;_ci_previous_url|s:30:"http://localhost/Test/ci/admin";invalid_creds|a:2:{s:6:"errors";s:19:"Invalid Credentials";s:4:"type";s:6:"danger";}__ci_vars|a:2:{s:13:"invalid_creds";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:2:{s:5:"email";s:24:"pabitraazaz215@gmail.com";s:8:"password";s:1:"s";}}
