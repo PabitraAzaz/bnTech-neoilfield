@@ -31,7 +31,91 @@ class Home extends BaseController
 
     public function contact_us()
     {
-        return view('web/contact');
+        $session = session();
+
+        if ($this->request->getMethod() === 'GET') {
+            return view('web/contact');
+        } else {
+
+            if ($this->validate(
+                [
+
+                    'firstn' => 'required|max_length[13]',
+                    'email' => 'required|valid_email|max_length[124]',
+                    'phone' => 'required',
+                    'subject' => 'required',
+                    'message' => 'permit_empty'
+
+
+                ],
+                [
+
+                    'firstn' => [
+                        'required' => 'Please fill password',
+                        'max_length' => 'Password is too large'
+                    ],
+                    'email' => [
+                        'required' => 'Please fill Email',
+                        'valid_email' => 'Please use valid Email',
+                        'max_length' => 'Email is too large'
+                    ],
+
+
+                    
+                    'phone' => [
+                        'required' => 'Please fill password',
+                        'max_length' => 'Password is too large'
+                    ],
+
+                    
+                    'subject' => [
+                        'required' => 'Please fill password',
+                        'max_length' => 'Password is too large'
+                    ],
+                    
+                    'firstn' => [
+                        'required' => 'Please fill password',
+                        'max_length' => 'Password is too large'
+                    ],
+                ]
+            )) {
+
+                $email = $this->request->getPost('email');
+                $password = md5($this->request->getPost('password'));
+
+                $userModel = new UserModel();
+
+                $checkData = $userModel->checkLoginData($email, $password);
+
+                if ($checkData) {
+
+                    $userData = [
+                        'id' => $checkData['user_id'],
+                        'name' => $checkData['user_name'],
+                        'email' => $checkData['user_email'],
+                    ];
+
+                    $updateData = $userModel->update($checkData['user_id'], ['is_logged' => 1]);
+
+
+
+                    $session->set('admin_auth', $userData);
+                    return redirect()->to(base_url('admin/dashboard'));
+                } else {
+                    $session->setFlashdata('error_msg', ["msg" => 'Invalid Credentials', "type" => "danger"]);
+
+                    return redirect()->back()->withInput();
+                }
+            } else {
+                // echo 'not validate || ';
+
+                $session->setFlashdata('invalid_creds', [
+                    "errors" => $this->validator->getErrors(),
+                    "type" => "danger"
+                ]);
+                return redirect()->back()->withInput();
+            }
+        }
     }
 
 

@@ -67,7 +67,7 @@
                             Make Appointment
                         </h2>
                     </div>
-                    <form action="https://htmldemo.zcubethemes.com/indobi/mail.php" method="post" class="contact-form mt-30">
+                    <form action="<?= base_url('contact-us') ?>" method="post" class="contact-form mt-30">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="contact-field p-relative c-name mb-20">
