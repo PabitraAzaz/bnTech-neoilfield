@@ -185,7 +185,7 @@
 
                 <li class="nav-item menu-open">
 
-                    <a href=<?= base_url("/admin/message") ?> class="nav-link">
+                    <a href=<?= base_url("/admin/messages") ?> class="nav-link">
 
                         <i class="nav-icon fas fa-tachometer-alt"></i>
 

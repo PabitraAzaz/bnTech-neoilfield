@@ -38,6 +38,13 @@ $routes->group('admin/', function ($routes) {
 
 
 
+    $routes->group('messages', function ($routes) {
+        $routes->get('/', 'AdminController\Dashboard::message_list');
+        $routes->get('delete/(:num)', 'AdminController\Dashboard::message_delete/$1');
+    });
+
+
+
 
     // $routes->get('logout', 'AdminController\DashboardController::logout');
 });

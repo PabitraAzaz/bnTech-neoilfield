@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\MessagesMOdel;
 use App\Models\UserModel;
 
 
@@ -37,10 +38,14 @@ class Home extends BaseController
             return view('web/contact');
         } else {
 
+            // echo '<pre>';
+            // print_r($_POST);
+            // exit;
+
             if ($this->validate(
                 [
 
-                    'firstn' => 'required|max_length[13]',
+                    'firstn' => 'required|max_length[255]',
                     'email' => 'required|valid_email|max_length[124]',
                     'phone' => 'required',
                     'subject' => 'required',
@@ -52,7 +57,8 @@ class Home extends BaseController
 
                     'firstn' => [
                         'required' => 'Please fill password',
-                        'max_length' => 'Password is too large'
+                        'max_length' => 'Name is too large'
+
                     ],
                     'email' => [
                         'required' => 'Please fill Email',
@@ -61,50 +67,50 @@ class Home extends BaseController
                     ],
 
 
-                    
+
                     'phone' => [
-                        'required' => 'Please fill password',
-                        'max_length' => 'Password is too large'
+                        'required' => 'Please fill phone number',
                     ],
 
-                    
+
                     'subject' => [
-                        'required' => 'Please fill password',
-                        'max_length' => 'Password is too large'
+                        'required' => 'Please fill subject',
+
                     ],
-                    
-                    'firstn' => [
-                        'required' => 'Please fill password',
-                        'max_length' => 'Password is too large'
-                    ],
+
+
                 ]
             )) {
 
-                $email = $this->request->getPost('email');
-                $password = md5($this->request->getPost('password'));
-
-                $userModel = new UserModel();
-
-                $checkData = $userModel->checkLoginData($email, $password);
-
-                if ($checkData) {
-
-                    $userData = [
-                        'id' => $checkData['user_id'],
-                        'name' => $checkData['user_name'],
-                        'email' => $checkData['user_email'],
-                    ];
-
-                    $updateData = $userModel->update($checkData['user_id'], ['is_logged' => 1]);
 
 
 
-                    $session->set('admin_auth', $userData);
-                    return redirect()->to(base_url('admin/dashboard'));
+
+                // $name = $this->request->getPost('firstn');
+                // $email = $this->request->getPost('email');
+                // $phone = $this->request->getPost('phone');
+                // $subject = $this->request->getPost('subject');
+                // $message = $this->request->getPost('message');
+
+                $messageModel = new MessagesMOdel();
+
+
+
+
+                $result = $messageModel->save([
+                    'name' => $this->request->getPost('firstn'),
+                    'email' => $this->request->getPost('email'),
+                    'phone' => $this->request->getPost('phone'),
+                    'subject' => $this->request->getPost('subject'),
+                    'message' => $this->request->getPost('message'),
+                ]);
+
+                if ($result) {
+                    $session->setFlashdata('msg', ["msg" => 'Your message was sent, thank you! We will contact you soon.', "type" => "success"]);
+                    return redirect()->to(site_url("contact-us"));
                 } else {
-                    $session->setFlashdata('error_msg', ["msg" => 'Invalid Credentials', "type" => "danger"]);
-
-                    return redirect()->back()->withInput();
+                    $session->setFlashdata('invalid_creds',  ["errors" => ['value_err' => $result['msg']], "type" => "warning"]);
+                    return redirect()->to(site_url("contact-us"));
                 }
             } else {
                 // echo 'not validate || ';
