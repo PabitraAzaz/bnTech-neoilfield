@@ -88,9 +88,14 @@
                                             <a href="<?= base_url('services') ?>">Services</a>
 
                                             <ul>
-                                                <li><a href="#">Service</a></li>
-                                                <li><a href="#">Service</a></li>
-                                                <li><a href="#">Service</a></li>
+
+                                                <?php foreach ($this->data as $service): ?>
+                                                    <li><a href="<?= base_url('services/' . $service['id']) ?>"><?= $service['title'] ?></a></li>
+                                                <?php endforeach ?>
+
+
+                                                <!-- <li><a href="#">Service</a></li>
+                                                <li><a href="#">Service</a></li> -->
                                             </ul>
                                         </li>
                                         <li class="has-sub"><a href="#">Products</a>

@@ -28,11 +28,11 @@ $routes->group('admin/', function ($routes) {
     $routes->get('dashboard/', 'AdminController\Dashboard::index');
 
 
-    $routes->group('products', function ($routes) {
-        $routes->get('/', 'AdminController\ProductController::index');
-        $routes->match(['get', 'post'], 'create/', 'AdminController\ProductController::create');
+    $routes->group('services', function ($routes) {
+        $routes->get('/', 'AdminController\ServicesController::index');
+        $routes->match(['get', 'post'], 'create/', 'AdminController\ServicesController::create');
         // $routes->match(['get', 'post'], 'edit/(:num)', 'AdminController\CategoryController::edit/$1');
-        $routes->get('delete/(:num)', 'AdminController\ProductController::delete/$1');
+        $routes->get('delete/(:num)', 'AdminController\ServicesController::delete/$1');
     });
 
 

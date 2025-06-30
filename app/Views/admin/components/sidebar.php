@@ -84,7 +84,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Products
+                            Services
                             <i class="fas fa-angle-left right"></i>
 
                             <!-- <span class="badge badge-info right">6</span> -->
@@ -94,37 +94,24 @@
                     </a>
 
                     <ul class="nav nav-treeview pl-3">
-
                         <li class="nav-item">
-
-                            <a href="<?= base_url('admin/products') ?>" class="nav-link">
-
+                            <a href="<?= base_url('admin/services') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-
-                                <p>List Product</p>
-
+                                <p>List Services</p>
                             </a>
-
                         </li>
-
                     </ul>
+
+
 
                     <ul class="nav nav-treeview pl-3">
-
                         <li class="nav-item">
-
-                            <a href="<?= base_url('admin/products/create') ?>" class="nav-link">
-
+                            <a href="<?= base_url('admin/services/create') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-
-                                <p>Create Product</p>
-
+                                <p>Create Services</p>
                             </a>
-
                         </li>
-
                     </ul>
-
                 </li>
 
                 <!-- 

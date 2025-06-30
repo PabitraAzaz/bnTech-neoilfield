@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ServicesModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -51,8 +52,21 @@ abstract class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
+
+
+
+
+
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = service('session');
+    }
+
+    protected $data = [];
+
+    public function __construct()
+    {
+        $serviceModel = new ServicesModel();
+        $this->data['service_menu_data'] = $serviceModel->select('id, title')->findAll(5);
     }
 }

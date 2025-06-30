@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\MessagesMOdel;
+use App\Models\ServicesModel;
 use App\Models\UserModel;
 
 
@@ -10,24 +11,24 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('web/home');
+        return view('web/home', ($this->data['service_menu_data']));
     }
 
     public function services(): string
     {
-        return view('web/services');
+        return view('web/services', ($this->data['service_menu_data']));
     }
 
 
     public function gallery()
     {
-        return view('web/gallery');
+        return view('web/gallery', ($this->data['service_menu_data']));
     }
 
 
     public function about_us()
     {
-        return view('web/about');
+        return view('web/about', ($this->data['service_menu_data']));
     }
 
     public function contact_us()
@@ -35,7 +36,7 @@ class Home extends BaseController
         $session = session();
 
         if ($this->request->getMethod() === 'GET') {
-            return view('web/contact');
+            return view('web/contact', ($this->data['service_menu_data']));
         } else {
 
             // echo '<pre>';
