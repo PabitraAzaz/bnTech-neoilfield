@@ -11,24 +11,49 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('web/home', ($this->data['service_menu_data']));
+        return view('web/home', ($this->data));
     }
 
     public function services(): string
     {
-        return view('web/services', ($this->data['service_menu_data']));
+        return view('web/services', ($this->data));
     }
+
+
+
+    public function single_services($id)
+    {
+        $serviceModel = new ServicesModel();
+        $serviceD = $serviceModel->where('id', $id)->first();
+        // $this->data['serviceD'] = $serviceD;
+
+
+        // echo '<pre>';
+        // print_r($serviceD);
+        // exit;
+
+
+
+        $allS = $serviceModel->select('id, title')->findAll();
+
+
+
+        return view('web/single_products', ['service_menu_data' => $this->data['service_menu_data'], 'serviceD' => $serviceD, 'allS' => $allS]);
+    }
+
+
+
 
 
     public function gallery()
     {
-        return view('web/gallery', ($this->data['service_menu_data']));
+        return view('web/gallery', ($this->data));
     }
 
 
     public function about_us()
     {
-        return view('web/about', ($this->data['service_menu_data']));
+        return view('web/about', ($this->data));
     }
 
     public function contact_us()
@@ -36,7 +61,7 @@ class Home extends BaseController
         $session = session();
 
         if ($this->request->getMethod() === 'GET') {
-            return view('web/contact', ($this->data['service_menu_data']));
+            return view('web/contact', ($this->data));
         } else {
 
             // echo '<pre>';

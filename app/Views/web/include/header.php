@@ -89,9 +89,11 @@
 
                                             <ul>
 
-                                                <?php foreach ($this->data as $service): ?>
-                                                    <li><a href="<?= base_url('services/' . $service['id']) ?>"><?= $service['title'] ?></a></li>
-                                                <?php endforeach ?>
+
+                                                <?php foreach ($service_menu_data as $service): ?>
+                                                    <li><a href="<?= base_url('services/' . $service['id']) ?>"><?= esc($service['title']) ?></a></li>
+                                                <?php endforeach; ?>
+
 
 
                                                 <!-- <li><a href="#">Service</a></li>

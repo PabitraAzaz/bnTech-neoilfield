@@ -9,6 +9,10 @@ $routes->get('/', 'Home::index');
 $routes->get('/services', 'Home::services');
 
 
+
+$routes->get('/services/(:num)', 'Home::single_services/$1');
+
+
 $routes->get('/gallery', 'Home::gallery');
 $routes->get('/about-us', 'Home::about_us');
 $routes->match(['get', 'post'], '/contact-us', 'Home::contact_us');
@@ -16,11 +20,11 @@ $routes->match(['get', 'post'], '/contact-us', 'Home::contact_us');
 
 
 
-
-
-
-
 $routes->match(['get', 'post'], '/admin', 'Home::login');
+
+
+
+
 
 
 $routes->group('admin/', function ($routes) {
@@ -34,8 +38,6 @@ $routes->group('admin/', function ($routes) {
         // $routes->match(['get', 'post'], 'edit/(:num)', 'AdminController\CategoryController::edit/$1');
         $routes->get('delete/(:num)', 'AdminController\ServicesController::delete/$1');
     });
-
-
 
 
     $routes->group('messages', function ($routes) {
