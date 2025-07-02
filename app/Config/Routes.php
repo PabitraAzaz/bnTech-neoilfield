@@ -35,7 +35,9 @@ $routes->group('admin/', function ($routes) {
     $routes->group('services', function ($routes) {
         $routes->get('/', 'AdminController\ServicesController::index');
         $routes->match(['get', 'post'], 'create/', 'AdminController\ServicesController::create');
-        // $routes->match(['get', 'post'], 'edit/(:num)', 'AdminController\CategoryController::edit/$1');
+
+        $routes->match(['get', 'post'], 'edit/(:num)', 'AdminController\ServicesController::edit/$1');
+
         $routes->get('delete/(:num)', 'AdminController\ServicesController::delete/$1');
     });
 

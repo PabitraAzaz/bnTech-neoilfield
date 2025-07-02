@@ -309,9 +309,6 @@ class ProductController extends BaseController
     //             $oldresult = $prodModel->select('p_image')->where('p_id', $id)->first();
 
 
-
-
-
     //             $file = $this->request->getFile("p_image");
 
     //             if (trim($file) !== '') {
