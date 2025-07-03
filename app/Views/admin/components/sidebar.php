@@ -114,95 +114,58 @@
                     </ul>
                 </li>
 
-                <!-- 
+
+
+
 
                 <li class="nav-item">
-
                     <a href="#" class="nav-link">
-
                         <i class="nav-icon fas fa-copy"></i>
-
                         <p>
-
-                            Review
-
+                            Gallery
                             <i class="fas fa-angle-left right"></i>
 
-                           
+                            <!-- <span class="badge badge-info right">6</span> -->
 
                         </p>
 
                     </a>
 
                     <ul class="nav nav-treeview pl-3">
-
                         <li class="nav-item">
-
-                            <a href="<?= base_url('admin/review') ?>" class="nav-link">
-
+                            <a href="<?= base_url('admin/galleries') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-
-                                <p>Review List</p>
-
+                                <p>List gallery</p>
                             </a>
-
                         </li>
-
                     </ul>
+
+
 
                     <ul class="nav nav-treeview pl-3">
-
                         <li class="nav-item">
-
-                            <a href="<?= base_url('admin/review/create') ?>" class="nav-link">
-
+                            <a href="<?= base_url('admin/galleries/create') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-
-                                <p>Create Review</p>
-
+                                <p>Add Image</p>
                             </a>
-
                         </li>
-
                     </ul>
-
-                </li> -->
-
-
-
-                <li class="nav-item menu-open">
-
-                    <a href=<?= base_url("/admin/messages") ?> class="nav-link">
-
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-
-                        <p>
-
-                            Message
-
-                        </p>
-
-                    </a>
-
                 </li>
 
 
 
-                <!-- <li class="nav-item menu-open">
 
-                    <a href=<?= base_url("/admin/booking") ?> class="nav-link">
-
+                <li class="nav-item menu-open">
+                    <a href=<?= base_url("/admin/messages") ?> class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-
                         <p>
-
-                            Tour Booking
-
+                            Message
                         </p>
-
                     </a>
+                </li>
 
-                </li> -->
+
+
 
 
 

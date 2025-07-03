@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\GalleriesModel;
 use App\Models\MessagesMOdel;
 use App\Models\ServicesModel;
 use App\Models\UserModel;
@@ -47,7 +48,12 @@ class Home extends BaseController
 
     public function gallery()
     {
-        return view('web/gallery', ($this->data));
+
+        $galModel = new GalleriesModel;
+        $galD = $galModel->select('id,gal_image,title')->findAll();
+
+
+        return view('web/gallery', ['service_menu_data' => $this->data['service_menu_data'], 'gal' => $galD]);
     }
 
 

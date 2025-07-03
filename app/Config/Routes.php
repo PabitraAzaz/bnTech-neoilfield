@@ -50,5 +50,13 @@ $routes->group('admin/', function ($routes) {
 
 
 
+    $routes->group('galleries', function ($routes) {
+        $routes->get('/', 'AdminController\GalleriesController::index');
+        $routes->match(['get', 'post'], 'create/', 'AdminController\GalleriesController::create');
+        $routes->get('delete/(:num)', 'AdminController\GalleriesController::delete/$1');
+    });
+
+
+
     // $routes->get('logout', 'AdminController\DashboardController::logout');
 });

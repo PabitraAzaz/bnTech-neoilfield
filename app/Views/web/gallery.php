@@ -54,39 +54,22 @@
 
 
                     <div class="row g-4 mt-3">
-                        <!-- Column 1 -->
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <a class="gallery-image-pop" href="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4="><img src="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4=" alt="img">
-                            </a>
-                        </div>
-                        <!-- Column 2 -->
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <a class="gallery-image-pop" href="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4="><img src="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4=" alt="img">
-                            </a>
-                        </div>
-                        <!-- Column 3 -->
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <a class="gallery-image-pop" href="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4="><img src="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4=" alt="img">
-                            </a>
-                        </div>
 
 
-                         <div class="col-12 col-sm-6 col-md-4">
-                            <a class="gallery-image-pop" href="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4="><img src="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4=" alt="img">
-                            </a>
-                        </div>
+
+                        <?php foreach ($gal as $g): ?>
+
+                            <!-- Column 1 -->
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <a class="gallery-image-pop" href="<?= base_url('uploads/gallery_image/' . $g['gal_image']) ?>"><img src="<?= base_url('uploads/gallery_image/' . $g['gal_image']) ?>" alt="img">
+                                </a>
+                            </div>
 
 
-                         <div class="col-12 col-sm-6 col-md-4">
-                            <a class="gallery-image-pop" href="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4="><img src="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4=" alt="img">
-                            </a>
-                        </div>
+                        <?php endforeach ?>
 
 
-                         <div class="col-12 col-sm-6 col-md-4">
-                            <a class="gallery-image-pop" href="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4="><img src="https://media.istockphoto.com/id/1323151704/photo/oil-pumps-and-rig-at-sunset-by-the-sea.jpg?s=612x612&w=0&k=20&c=3eaPKjNLcfwJq2lUezIA6Fe6lGMUdytOf2SbkQDGpA4=" alt="img">
-                            </a>
-                        </div>
+
                         <!-- Add more columns as needed -->
                     </div>
 

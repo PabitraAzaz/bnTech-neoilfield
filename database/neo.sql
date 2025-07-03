@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2025 at 01:52 PM
+-- Generation Time: Jul 03, 2025 at 02:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `neo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE `galleries` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `gal_image` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -64,14 +79,6 @@ CREATE TABLE `services` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `services`
---
-
-INSERT INTO `services` (`id`, `title`, `description`, `why_choose`, `service_image`, `other_info`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Fabrication Works in the\r\nUAE', 'Majestic delivers exceptional quality and precision across a wide range of materials and applications. From intricate metal fabrication and robust steel fabrication to custom aluminum fabrication and beyond, our skilled team and state-of-the-art facilities ensure your project is executed flawlessly.\n\nWe specialize in structural steel, architectural metalwork, and industrial components. Contact Majestic today for reliable and high-quality fabrication services in UAE.', 'Complete account of the systems and expound the actually teachings of the great explorer of the truth, the master-builder of human uts happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely.\n\nComplete account of the systems and expound the actually teachings of the great explorer of the truth, the master-builder of human uts happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally.', 'Service_1751286860.jpg', 'Pleasure and praising pain was born and I will give you a complete account of the systems, and expound the actually teachings of the great explorer of the truth, the master-builder of human uts happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally Nor who loves or pursues or desires to obtain pain of itself.', '2025-06-30 17:32:06', '2025-06-30 17:32:06', NULL),
-(2, 'Fabrication Works in the UAE', 'Majestic delivers exceptional quality and precision across a wide range of materials and applications. From intricate metal fabrication and robust steel fabrication to custom aluminum fabrication and beyond, our skilled team and state-of-the-art facilities ensure your project is executed flawlessly.\r\n\r\nWe specialize in structural steel, architectural metalwork, and industrial components. Contact Majestic today for reliable and high-quality fabrication services in UAE.', 'Complete account of the systems and expound the actually teachings of the great explorer of the truth, the master-builder of human uts happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely.\r\n\r\nComplete account of the systems and expound the actually teachings of the great explorer of the truth, the master-builder of human uts happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally.', 'Service_1751286860.jpg', 'Pleasure and praising pain was born and I will give you a complete account of the systems, and expound the actually teachings of the great explorer of the truth, the master-builder of human uts happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally Nor who loves or pursues or desires to obtain pain of itself.', '2025-06-30 12:34:20', '2025-06-30 12:34:20', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -103,6 +110,12 @@ INSERT INTO `users` (`user_id`, `user_type`, `user_name`, `user_email`, `user_pa
 --
 
 --
+-- Indexes for table `galleries`
+--
+ALTER TABLE `galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -123,6 +136,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `galleries`
+--
+ALTER TABLE `galleries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `messages`

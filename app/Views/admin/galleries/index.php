@@ -1,18 +1,14 @@
 <?= $this->extend('admin/components/assemble') ?>
-
-<?= $this->section('title') ?>Tours<?= $this->endSection() ?>
-
+<?= $this->section('title') ?>Galleries<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 
 
 
 <main>
-
     <?= $this->include('/admin/components/alert_message'); ?>
-
     <div>
 
-        <a href="<?= base_url('admin/products/create') ?>">
+        <a href="<?= base_url('admin/galleries/create') ?>">
             <button type="button" class="btn btn-primary m-2">
                 Add
             </button>
@@ -20,7 +16,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Products</h3>
+                <h3 class="card-title">Gallery</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -29,40 +25,27 @@
                         <tr>
                             <th>No</th>
                             <th>Image</th>
-                            <th>Product Name</th>
-                            <th>A Price</th>
-                            <th>O Price</th>
-                            <th>SKU</th>
+                            <th>Title</th>
+                            <!-- <th>Actions</th> -->
                             <th>Actions</th>
-                            <th>Actions</th>
-
                         </tr>
-
                     </thead>
 
                     <tbody>
 
-                        <?php foreach ($prod as $key => $p):
-                        ?>
-
+                        <?php foreach ($gal as $key => $p): ?>
                             <tr>
-
                                 <th scope="row"><?= $key + 1 ?></th>
-
-                                <td> <img src="<?= base_url('uploads/products/main-product/' . $p['p_main_img']) ?>"
-
+                                <td> <img src="<?= base_url('uploads/gallery_image/' . $p['gal_image']) ?>"
                                         class="img-circle elevation-2" style="height :50px ; width:50px"> </td>
+                                <td><?= $p['title'] ?></td>
 
-                                <td><?= $p['p_title'] ?></td>
 
-                                <td><?= $p['p_actual_price'] ?></td>
-                                <td><?= $p['p_offer_price'] ?></td>
-                                <td><?= $p['sku'] ?></td>
 
-                                <td><a href="<?= base_url("/admin/products/edit/" . $p["p_id"]) ?>" class="text-white"><button
-                                            class="btn-success btn">View</button></a></td>
-                                <td><a href="<?= base_url("/admin/products/delete/" . $p['p_id']) ?>" class="text-white"
-                                        onclick="return confirm('Are you sure to delete <?= $p['p_title'] ?>?')"><button
+                                <!-- <td><a href="<?= base_url("/admin/galleries/edit/" . $p["id"]) ?>" class="text-white"><button
+                                            class="btn-success btn">View</button></a></td> -->
+                                <td><a href="<?= base_url("/admin/galleries/delete/" . $p['id']) ?>" class="text-white"
+                                        onclick="return confirm('Are you sure to delete <?= $p['title'] ?>?')"><button
                                             class="btn-danger btn">Delete</button></a></td>
                             </tr>
                         <?php endforeach ?>
@@ -73,11 +56,8 @@
                         <tr>
                             <th>No</th>
                             <th>Image</th>
-                            <th>Product Name</th>
-                            <th>A Price</th>
-                            <th>O Price</th>
-                            <th>SKU</th>
-                            <th>Actions</th>
+                            <th>Title</th>
+                            <!-- <th>Actions</th> -->
                             <th>Actions</th>
                         </tr>
 
